@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merry Christmas BABY ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #b30000, #006400);
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 25px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      max-width: 380px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    h1 {
+      font-size: 1.6em;
+      margin-bottom: 8px;
+    }
+    .title-small {
+      font-size: 1.2em;
+    }
+    p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    .heart {
+      font-size: 2.2em;
+      margin-top: 12px;
+      animation: pulse 1.5s infinite;
+    }
+    button {
+      margin-top: 18px;
+      padding: 9px 20px;
+      font-size: 0.95em;
+      border: none;
+      border-radius: 25px;
+      background: #ff4d4d;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    button:hover {
+      background: #ff1a1a;
+      transform: scale(1.05);
+    }
+    .hidden { display: none; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      user-select: none;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
+
+    .emoji-bouquet {
+      font-size: 3em;
+      margin-top: 20px;
+      display: inline-block;
+      position: relative;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/12/09/audio_3d5b7d3b2e.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const snowCount = 35;
+    for (let i = 0; i < snowCount; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.innerHTML = '❄';
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.animationDuration = 3 + Math.random() * 5 + 's';
+      snow.style.fontSize = 12 + Math.random() * 18 + 'px';
+      document.body.appendChild(snow);
+    }
+  </script>
+
+  <div class="card" id="startScreen">
+    <h1>🎄 Merry Christmas 🎄</h1>
+    <p>A small Christmas surprise made with love.</p>
+    <button onclick="startApp()">Start</button>
+  </div>
+
+  <div class="card hidden" id="introScreen">
+    <h1>✨ A Small Introduction ✨</h1>
+    <p>
+      Before you read my message, I just want you to know how thankful I am
+      to have you in my life. You make my days brighter and my heart warmer.
+    </p>
+    <button onclick="showMessage()">Continue</button>
+  </div>
+
+  <div class="card hidden" id="messageScreen">
+    <h1>🎄 Merry Christmas 🎄</h1>
+    <p>
+      This Christmas is extra special because I have you.
+      Thank you for the love, laughs, and happiness you bring into my life.
+    </p>
+    <p>
+      I hope this season fills your heart with warmth,
+      joy, and all the love you truly deserve.
+    </p>
+    <div class="heart">❤️</div>
+    <p>Forever yours.</p>
+    <button onclick="showEmojiBouquet()">See a Bouquet 🌷</button>
+  </div>
+
+  <div class="card hidden" id="flowerScreen">
+    <h1 class="title-small">🌷 A Special Tulip Bouquet For You 🌷</h1>
+    <div class="emoji-bouquet">💐🌷🌷🌷💐</div>
+    <p>May your Christmas be as beautiful as this bouquet!</p>
+  </div>
+
+  <script>
+    function startApp() {
+      document.getElementById('startScreen').classList.add('hidden');
+      document.getElementById('introScreen').classList.remove('hidden');
+      document.getElementById('music').play();
+    }
+    function showMessage() {
+      document.getElementById('introScreen').classList.add('hidden');
+      document.getElementById('messageScreen').classList.remove('hidden');
+    }
+    function showEmojiBouquet() {
+      document.getElementById('messageScreen').classList.add('hidden');
+      document.getElementById('flowerScreen').classList.remove('hidden');
+    }
+  </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
